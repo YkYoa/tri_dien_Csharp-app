@@ -77,9 +77,77 @@ namespace tri
         private string lastReceivedName = "";
         private DateTime lastReceivedTime = DateTime.MinValue;
         private Dictionary<string, int> deviceCounts = new Dictionary<string, int>();
+        private List<string> receivedDataList = new List<string>();
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = listBox1.SelectedIndex;
+
+            if (selectedIndex >= 0 && selectedIndex < receivedDataList.Count)
+            {
+                string selectedData = receivedDataList[selectedIndex];
+
+                // Xử lý dữ liệu và hiển thị
+                ProcessAndDisplayData(selectedData);
+            }
+        }
+        private void ProcessAndDisplayData(string data)
+        {
+            string[] array = data.Split(new string[] { "/", ":" }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (array.Length >= 34)
+            {
+                listBox4.Items.Clear();
+                repBox.Clear();
+                idbox1.Text = array[0];
+                nodebox.Text = array[1];
+
+                // Process each measurement
+                for (int i = 0; i < 8; i++)
+                {
+                    int index = 2 + i * 4;
+                    if (array.Length >= index + 4)
+                    {
+                        string hex = array[index];
+                        string bin = hex2binary(hex);
+
+                        // Split binary string into separate numbers
+                        string[] myStringArray = bin.PadLeft(12, '0').Select(x => x.ToString()).ToArray();
+
+                        // Assign values to labels in the form
+                        Label emcLabel = Controls.Find("emc_" + (i + 1), true).FirstOrDefault() as Label;
+                        Label[] sLabels = new Label[12];
+                        for (int j = 0; j < 12; j++)
+                        {
+                            sLabels[j] = Controls.Find("s" + (j + 1) + "_" + (i + 1), true).FirstOrDefault() as Label;
+                        }
+                        Label as1Label = Controls.Find("as1_" + (i + 1), true).FirstOrDefault() as Label;
+                        Label as2Label = Controls.Find("as2_" + (i + 1), true).FirstOrDefault() as Label;
+                        Label as3Label = Controls.Find("as3_" + (i + 1), true).FirstOrDefault() as Label;
+
+                        emcLabel.Invoke((MethodInvoker)(() => emcLabel.Text = myStringArray[0]));
+                        for (int j = 0; j < 11; j++)
+                        {
+                            int labelIndex = j;
+                            sLabels[j].Invoke((MethodInvoker)(() => sLabels[labelIndex].Text = myStringArray[labelIndex + 1]));
+                        }
+                        as1Label.Invoke((MethodInvoker)(() => as1Label.Text = array[index + 1]));
+                        as2Label.Invoke((MethodInvoker)(() => as2Label.Text = array[index + 2]));
+                        as3Label.Invoke((MethodInvoker)(() => as3Label.Text = array[index + 3]));
+                    }
+                }
+
+                // Additional processing or displaying can be added here if needed
+            }
+        }
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string data = serialPort1.ReadLine();
+            receivedDataList.Add(data);
+            if (receivedDataList.Count > 100)
+            {
+                receivedDataList.RemoveAt(0);
+            } 
+                
             Invoke(new MethodInvoker(() =>
                 {
                     repBox.Text = data;

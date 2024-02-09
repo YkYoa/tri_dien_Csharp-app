@@ -770,7 +770,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(126, 547);
+            this.button1.Location = new System.Drawing.Point(5, 538);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button1.Size = new System.Drawing.Size(82, 31);
@@ -782,7 +782,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(474, 548);
+            this.button2.Location = new System.Drawing.Point(5, 576);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 32);
             this.button2.TabIndex = 47;
@@ -797,6 +797,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(437, 147);
             this.listBox1.TabIndex = 48;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -3062,15 +3063,15 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(126, 260);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(437, 121);
+            this.listBox2.Size = new System.Drawing.Size(437, 95);
             this.listBox2.TabIndex = 76;
             // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(126, 387);
+            this.listBox3.Location = new System.Drawing.Point(126, 361);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(437, 82);
+            this.listBox3.Size = new System.Drawing.Size(437, 108);
             this.listBox3.TabIndex = 77;
             // 
             // serialBox

@@ -96,8 +96,6 @@ namespace tri
 
             if (array.Length >= 34)
             {
-                listBox4.Items.Clear();
-                repBox.Clear();
                 idbox1.Text = array[0];
                 nodebox.Text = array[1];
 
@@ -150,14 +148,11 @@ namespace tri
                 
             Invoke(new MethodInvoker(() =>
                 {
-                    repBox.Text = data;
                     listBox1.Items.Add(data);
                     string[] array = data.Split(new string[] { "/", ":" }, StringSplitOptions.RemoveEmptyEntries);
                     listBox4.Items.Add($" {data} Received at {DateTime.Now.ToString("HH:mm:ss")}");
                     if (array.Length >= 34)
                     {
-                        listBox4.Items.Clear();
-                        repBox.Clear();
                         idbox1.Text = array[0];
                         nodebox.Text = array[1];
                         int currentIndex = int.Parse(array[0]);

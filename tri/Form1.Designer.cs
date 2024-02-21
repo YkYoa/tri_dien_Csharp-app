@@ -305,10 +305,8 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.serialBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.repBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -3092,16 +3090,6 @@
             this.label1.TabIndex = 79;
             this.label1.Text = "SERIAL BOX";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(644, 588);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(109, 20);
-            this.label21.TabIndex = 81;
-            this.label21.Text = "REPLY BOX";
-            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3120,14 +3108,6 @@
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(438, 69);
             this.listBox4.TabIndex = 83;
-            // 
-            // repBox
-            // 
-            this.repBox.Location = new System.Drawing.Point(645, 611);
-            this.repBox.Multiline = true;
-            this.repBox.Name = "repBox";
-            this.repBox.Size = new System.Drawing.Size(196, 33);
-            this.repBox.TabIndex = 84;
             // 
             // label2
             // 
@@ -3270,10 +3250,8 @@
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.repBox);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.serialBox);
             this.Controls.Add(this.listBox3);
@@ -3618,10 +3596,8 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.TextBox serialBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.TextBox repBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label22;
